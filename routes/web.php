@@ -13,11 +13,11 @@
 
 Route::view('/', 'welcome')->name('welcome');
 Route::view('about', 'about')->name('about');
-Route::get('adminer', function () {
-    return 'adminer';
-});
 Route::get('contact', 'ContactController@create')->name('contact.create');
 Route::post('contact', 'ContactController@store')->name('contact.store');
+Route::get('/club', function () {
+    return 'welcome to the club';
+})->middleware('age:Ali');
 
 Route::resource('companies', 'CompanyController')->only(['index', 'show']);
 
